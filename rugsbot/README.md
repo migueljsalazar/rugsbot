@@ -31,6 +31,16 @@ Building and using bots for online games can be against their Terms of Service. 
 python -m rugsbot.bot
 ```
 
+### Inspecting WebSocket Frames
+
+During early development you can verify your connection and observe the raw
+Socket.IO traffic using the helper CLI:
+
+```bash
+python -m rugsbot.dev --frames 30
+```
+This prints the first 30 frames received and then exits.
+
 ## Development with OpenAI Codex
 
 This project is structured to potentially be enhanced with OpenAI Codex. You can guide Codex by creating or modifying an `AGENTS.md` file in the root of this repository to instruct it on further development tasks, such as:
