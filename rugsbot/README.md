@@ -25,6 +25,22 @@ Building and using bots for online games can be against their Terms of Service. 
     *   Update `WEBSOCKET_URI` with the correct WebSocket address for RUGS.FUN (see Phase 2, Step 6 of the guide).
     *   Adjust other parameters like `STAKE_AMOUNT`, `SESSION_PROFIT_TARGET_SOL`, etc., as needed.
 
+## Environment variables
+
+Configuration values can be overridden with environment variables or entries in
+a `.env` file. Each variable matches the name in `config.py` prefixed with
+`RUGSBOT_`. Common examples include:
+
+```
+RUGSBOT_WEBSOCKET_URI
+RUGSBOT_STAKE_AMOUNT
+RUGSBOT_PER_TRADE_PROFIT_MULTIPLIER_TARGET
+RUGSBOT_SESSION_PROFIT_TARGET_SOL
+RUGSBOT_MAX_BUY_WINDOW_SECONDS
+RUGSBOT_DYNAMIC_BUY_PRICE_CEILING
+RUGSBOT_LOG_LEVEL
+```
+
 ## Running the Bot
 
 ```bash
