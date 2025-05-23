@@ -55,6 +55,13 @@ DYNAMIC_BUY_PRICE_CEILING = _env(
     1.5,
 )  # Don't buy if initial price is already > X (relative to some baseline, or absolute if known)
 
+# --- Safety Features ---
+DRY_RUN = _env("DRY_RUN", False)  # If True, bot will simulate trades without actually placing them
+MAX_DAILY_LOSS = _env("MAX_DAILY_LOSS", 0.1)  # Maximum daily loss before stopping (in SOL)
+MAX_CONSECUTIVE_LOSSES = _env("MAX_CONSECUTIVE_LOSSES", 5)  # Maximum consecutive losses before stopping
+STOP_LOSS_MULTIPLIER = _env("STOP_LOSS_MULTIPLIER", 0.9)  # Stop loss at 90% of entry price
+MAX_POSITION_TIME_SECONDS = _env("MAX_POSITION_TIME_SECONDS", 300)  # Maximum time to hold a position (5 minutes)
+
 # --- Socket.IO Event Names (Confirm these with RUGS.FUN actual messages) ---
 SOCKETIO_EVENT_PLACE_BET = _env("SOCKETIO_EVENT_PLACE_BET", "placeBet")
 SOCKETIO_EVENT_SELL_BET = _env("SOCKETIO_EVENT_SELL_BET", "sellBet")
@@ -72,6 +79,11 @@ PING_INTERVAL_SECONDS = _env(
 # This PING_INTERVAL_SECONDS would be for client-initiated PINGs if required.
 
 LOG_LEVEL = _env("LOG_LEVEL", "INFO")  # Logging level (e.g., DEBUG, INFO, WARNING, ERROR)
+
+# --- Reconnection Settings ---
+MAX_RECONNECTION_ATTEMPTS = _env("MAX_RECONNECTION_ATTEMPTS", 5)  # Number of reconnection attempts
+RECONNECTION_DELAY_SECONDS = _env("RECONNECTION_DELAY_SECONDS", 5)  # Delay between reconnection attempts
+EXPONENTIAL_BACKOFF = _env("EXPONENTIAL_BACKOFF", True)  # Use exponential backoff for reconnections
 
 # It's good practice to load sensitive data like API keys from environment variables or a .env file
 # For this bot, the primary sensitive item is the WebSocket URI if it contains session tokens,
